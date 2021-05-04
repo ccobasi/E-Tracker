@@ -1,13 +1,13 @@
 class User < ApplicationRecord
-    has_many :projects, dependent: :destroy
-    has_many :groups, dependent: :destroy
+    has_many :expenses, dependent: :destroy
+  has_many :groups, dependent: :destroy
 
-    has_one_attached :avatar, dependent: :destroy
+  has_one_attached :avatar, dependent: :destroy
 
-    validates :email, presence: true
-    validates :name, presence: true, uniqueness: true
+  validates :email, presence: true
+  validates :name, presence: true, uniqueness: true
 
-    after_commit :add_default_cover, on: %i[create update]
+  after_commit :add_default_cover, on: %i[create update]
 
   private
 
