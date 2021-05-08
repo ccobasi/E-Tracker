@@ -1,11 +1,10 @@
-<%= form_with(model: user) do |form| %>
+<%= form_with(model: @user) do |form| %>
   <%=show_errors(user)%>
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+     <ul>
+      <% user.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+     </ul>
   
   <div class="field">
     <%= form.label :avatar,style:"display:none" %>
@@ -13,15 +12,15 @@
     <hr>
   </div>
   <div class="field">
-  <%= form.label :name,style:"display:none" %>
-  <%= form.text_field :name,placeholder:"Name",class:"form-input" %>
-  <hr>
+    <%= form.label :name,style:"display:none" %>
+    <%= form.text_field :name,placeholder:"Name",class:"form-input" %>
+    <hr>
   </div>
   
   <div class="field">
-  <%= form.label :email,style:"display:none" %>
-  <%= form.text_field :email,placeholder:"Email",class:"form-input" %>
-  <hr>
+    <%= form.label :email,style:"display:none" %>
+    <%= form.text_field :email,placeholder:"Email",class:"form-input" %>
+    <hr>
   </div>
   
   <div class="actions">
@@ -29,12 +28,3 @@
   </div>
 <% end %>
 
-
-
-  
-  
-  
-  <div class="actions">
-    <%= form.submit  %>
-  </div>
-<% end %>
