@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   has_many :groups, through: :groups_projects, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 3, maximum: 25 }
-  validates :amount, presence: true, numericality: { less_than: 10_000 }
+  validates :duration, presence: true, numericality: { less_than: 10_000 }
 
   scope :most_recent, -> { order('created_at DESC') }
 end

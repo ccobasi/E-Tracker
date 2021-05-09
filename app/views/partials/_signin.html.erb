@@ -11,7 +11,7 @@
           <div class='user-thumb d-flex justify-content-center'>
             <%=link_to image_tag(current_user.avatar, style:"width:180px; height:180px; border-radius:50%"), user_path(current_user)%>
           </div>
-          <div class="username text-white d-flex justify-content-center nav-link p-2 my-3"> <%="Hello #{current_user.name.titlecase} ready to start saving money?"%></div>
+          <div class="username text-white d-flex justify-content-center nav-link p-2 my-3"> <%="Hello #{current_user.name.titlecase} ready to start coding?"%></div>
         </li>
         <li class="nav-item">
           <%=link_to 'All my Projects', projects_path, class: 'nav-link d-flex justify-content-center bi bi-cash'%>
