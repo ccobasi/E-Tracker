@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Group, type: :model do
   let(:name) { 'simple name' }
-  let(:user) { User.create(name: 'Chu', email: 'chu@hotmail.com', id: 1) }
+  let(:user) { User.create(name: 'Chukwu', email: 'chukwu@hotmail.com', id: 5) }
   let(:pr1) { Project.new(name: 'Project1', duration: 51) }
   let(:pr2) { Project.new(name: 'Project2', duration: 52) }
   let(:group) { Group.create(name: 'Group1', user_id: user.id, id: 1) }

@@ -6,8 +6,8 @@ RSpec.describe User, type: :model do
   let(:user2) { User.create(name: 'Jake', email: 'jake@hotmail.com', id: 2) }
   let(:user_no_name) { User.create(email: 'spongeb@hotmail.com') }
   let(:user_no_email) { User.create(name: 'SpongeBob') }
-  let(:pr1) { Project.new(name: 'Project1', amount: 51) }
-  let(:pr2) { Project.new(name: 'Project2', amount: 52) }
+  let(:pr1) { Project.new(name: 'Project1', duration: 51) }
+  let(:pr2) { Project.new(name: 'Project2', duration: 52) }
   let(:group) { Group.create(name: 'Group1', user_id: user.id) }
 
   describe 'Users can be created' do
