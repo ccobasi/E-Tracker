@@ -65,10 +65,10 @@ To run this app on your local enviroment or web browser, simply follow the steps
 
 ## Author
 
-### Diego Hernandez
+### Chukwuma Obasi
 
 - GitHub: [@ccobasi](https://github.com/ccobasi)
-- Twitter: [@obasichux](https://twitter.com/diegohdezchimo)
+- Twitter: [@obasichux](https://twitter.com/obasichux)
 - LinkedIn: [chukwuma-obasi](https://www.linkedin.com/in/chukwuma-obasi/)
 
 ## Acknowledgements
