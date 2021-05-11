@@ -64,7 +64,7 @@ class UsersController < ApplicationController
     return if logged_in?
 
     flash[:alert] = 'You need to login or sign up to access'
-    redirect_to '/log'
+    redirect_to '/login'
   end
 
   # Use callbacks to share common setup or constraints between actions.
