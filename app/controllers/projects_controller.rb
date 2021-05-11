@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
         # p params[:project][:group_id]
         group_id = params[:project][:group_id]
         GroupsProject.create(group_id: group_id, project_id: @project.id) if group_id
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -74,7 +74,7 @@ class ProjectsController < ApplicationController
     return if logged_in?
 
     flash[:alert] = 'You need to login or sign up to access'
-    redirect_to '/log'
+    redirect_to '/login'
   end
 
   # Use callbacks to share common setup or constraints between actions.
