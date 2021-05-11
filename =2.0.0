@@ -1,0 +1,10 @@
++ stylelint@13.13.1
++ stylelint-scss@3.19.0
++ stylelint-order@4.1.0
+added 2 packages from 1 contributor, removed 10 packages, updated 2 packages and audited 1205 packages in 112.289s
+
+73 packages are looking for funding
+  run `npm fund` for details
+
+found 87 moderate severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
