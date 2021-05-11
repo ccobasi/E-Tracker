@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:name) { 'simple name' }
-  let(:user) { User.create(name: 'Chu', email: 'chu@hotmail.com', id: 1) }
+  let(:user) { User.create(name: 'Chu', email: 'chu@hotmail.com', id: 101) }
   let(:user2) { User.create(name: 'Jake', email: 'jake@hotmail.com', id: 2) }
   let(:user_no_name) { User.create(email: 'spongeb@hotmail.com') }
   let(:user_no_email) { User.create(name: 'SpongeBob') }

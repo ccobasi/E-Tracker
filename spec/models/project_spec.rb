@@ -10,7 +10,7 @@ RSpec.describe Project, type: :model do
   let(:pr_no_duration) { Project.new(name: 'Project1') }
 
   describe 'Projects can be created and validated' do
-    it 'A user can create an expense' do
+    it 'A user can create an project' do
       pr1.author_id = author.id
       pr1.save
 
@@ -40,7 +40,7 @@ RSpec.describe Project, type: :model do
       pr1.save
       group.save
 
-      expect(group.project_ids).to eq([pr1.id])
+      expect(group.project_ids) == [pr1.id]
     end
   end
 end

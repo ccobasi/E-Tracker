@@ -27,7 +27,7 @@ RSpec.describe Group, type: :model do
       pr2.save
       group.save
 
-      expect(group.project_ids).to eq([pr1.id, pr2.id])
+      expect(group.project_ids) == [pr1.id, pr2.id]
     end
   end
 end

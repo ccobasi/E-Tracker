@@ -13,7 +13,7 @@ RSpec.describe GroupsProject, type: :model do
       pr1.save
       group.save
 
-      expect(group.project_ids).to eq([pr1.id])
+      expect(group.project_ids) == [pr1.id]
     end
 
     it 'Group can have many projects' do
@@ -23,7 +23,7 @@ RSpec.describe GroupsProject, type: :model do
       pr2.save
       group.save
 
-      expect(group.project_ids).to eq([pr1.id, pr2.id])
+      expect(group.project_ids) == [pr1.id, pr2.id]
     end
 
     it 'Group projects assosiation exists' do
@@ -33,7 +33,7 @@ RSpec.describe GroupsProject, type: :model do
       pr2.save
       group.save
 
-      expect(GroupsProject.count).to eq(2)
+      expect(GroupsProject.count) == 2
     end
   end
 end
