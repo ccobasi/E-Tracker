@@ -37,6 +37,4 @@ test:
 
 production:
   <<: *default
-  database: e_tracker_production
-  username: capstone_e_tracker
-  password: <%= ENV['CAPSTONE_E_TRACKER_DATABASE_PASSWORD'] %>
+  database: db/production.sqlite3
