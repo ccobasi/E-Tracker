@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    # @users = User.all
     return unless logged_in?
 
     redirect_to current_user

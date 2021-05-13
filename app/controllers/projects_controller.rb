@@ -4,23 +4,32 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    # @projects = Project.all
+    
+    @projects = Project.all
     @projects = Project.includes(:author).where('author_id = ?',
                                                 current_user.id).joins(:groups_projects).most_recent
   end
 
   # GET /projects/1 or /projects/1.json
-  def show; end
+  def show
+    @project = Project.find(params[:id])
+    @groups = @project.group.nil? ? nil : @project.group
+  end
 
   def project_ungrouped
     @projects = Project.includes(:author).where('author_id = ?',
                                                 current_user.id).left_outer_joins(:groups_projects).where('group_id IS NULL').most_recent
     render 'index'
+    
   end
 
   # GET /projects/new
   def new
+    
     @project = Project.new
+    @groups = Group.all
+    @groups_array = create_groups_array
+    @projects_created = projects_created
   end
 
   # GET /projects/1/edit
@@ -33,7 +42,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        # p params[:project][:group_id]
+        
         group_id = params[:project][:group_id]
         GroupsProject.create(group_id: group_id, project_id: @project.id) if group_id
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
@@ -85,4 +94,16 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:name, :duration)
   end
+
+  def projects_created
+    Project.ascending.pluck(:name)
+  end
+  
+  def create_groups_array
+    arr = Group.all.pluck(:name, :id)
+    arr.insert(0, ['No group', nil])
+  end
 end
+
+
+

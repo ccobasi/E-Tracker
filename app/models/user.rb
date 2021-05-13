@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   after_commit :add_default_cover, on: %i[create update]
 
+  def ungrouped_projects_from_user()
+    Project.includes(:author).where(group_id: nil).where(author_id: current_user.id)
+  end
+
   private
 
   def add_default_cover

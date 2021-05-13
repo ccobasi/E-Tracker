@@ -4,7 +4,6 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    # @groups = Group.all
     @groups = Group.includes(:user).order(:name)
   end
 
@@ -13,7 +12,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/new
   def new
-    # @group = Group.new
+   
     @group = current_user.groups.build
   end
 
@@ -22,7 +21,7 @@ class GroupsController < ApplicationController
 
   # POST /groups or /groups.json
   def create
-    # @group = Group.new(group_params)
+    
     @group = current_user.groups.build(group_params)
 
     respond_to do |format|
