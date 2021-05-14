@@ -5,7 +5,7 @@ class Group < ApplicationRecord
   has_many :projects, through: :groups_projects, dependent: :destroy
   has_one_attached :icon, dependent: :destroy
 
-  validates :name, presence: true, length: { minimum: 3, maximum: 15 }
+  validates :name, presence: true, length: { minimum: 4, maximum: 15 }
 
   after_create :add_default_cover
 
