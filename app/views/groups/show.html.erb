@@ -10,7 +10,7 @@
       <% @group.projects.each do |project| %>
         <li class="list-group-item d-flex justify-content-between" style="font-size:13px;">
           <span class="d-flex flex-column"> <small class="text-muted">Name</small> <%=project.name%></span>
-          <span class="d-flex flex-column"><small class="text-muted">Amount</small>$<%=project.duration%></span>
+          <span class="d-flex flex-column"><small class="text-muted">Duration</small>$<%=project.duration%></span>
           <span class="d-flex flex-column"><small class="text-muted">Created by</small><%=project.author.name%></span>
           <%= display_eye(project)%>
         </li>

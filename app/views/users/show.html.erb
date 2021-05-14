@@ -2,17 +2,23 @@
 <% provide(:title, "#{@user.name}") %>
 <div class="d-flex flex-column align-items-center">
   <div class="user-thumb my-3">
-    <%=image_tag(@user.avatar, style:"width:180px; height:180px; border-radius:50%")%>
+    <%=image_tag(@user.avatar, style:"width:100px; height:100px; border-radius:50%")%>
   </div>
+  <div>
+            <p class="text-center">
+                
+            <p>
+        </div>
   <div class="user-profile-ul">
     <ul class="list-group">
       <div class="username text-white d-flex justify-content-center nav-link p-2 mt-3"> <%="Hello #{current_user.name.titlecase} ready to start building project?"%></div>
       <li class="list-group-item">
         <%=link_to 'All my Projects', projects_path, class: 'nav-link d-flex justify-content-center bi bi-cash'%>
       </li>
+      
       <li class="list-group-item">
-        <%=link_to 'All my External Projects', projects_project_ungrouped_path, class: 'nav-link d-flex justify-content-center bi  bi-cash-stack'%>
-      </li>
+                <%=link_to 'All My External Projects', projects_path(ungrouped: true), class: 'nav-link d-flex justify-content-left bi bi-list-stars'%>
+            </li>
       <li class="list-group-item">
         <%=link_to 'All groups', groups_path, class: 'nav-link d-flex justify-content-center bi bi-collection-fill'%>
       </li>
@@ -21,7 +27,13 @@
       </li>
     </ul>
     <p class="text-center">
-      <strong class="text-white text-center">Digitally Yours.</strong>
-    </p>
+            <strong class="text-success text-center m-2">Log 40 hours a week to achieve your goals.</strong>
+        </p>
+    
   </div>
+  <div class="log-sign-btns jusitfy-self-end position-absolute bottom-0 bg-primary">
+        <%=link_to '', '', class:'btn sign-up-btn text-secondary'%>
+    </div>
 </div>
+
+

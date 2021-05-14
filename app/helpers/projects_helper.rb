@@ -7,11 +7,13 @@ module ProjectsHelper
 
   def total_project(projects)
     total = projects.inject(0) { |acum, project| acum + project.duration }
-    if total > 1000
-
-      content_tag(:span, "#{total}hr You are clocked-in the mandatory time", class: 'text-danger build-project')
-    else
-      "#{total}hr"
-    end
   end
+
+  # def extra_feature_hours_message(hours)
+  #   if hours >= 40
+  #     render partial: 'partials/good_job'
+  #   else
+  #     render partial: 'partials/log_tasks'
+  #   end
+  # end
 end
