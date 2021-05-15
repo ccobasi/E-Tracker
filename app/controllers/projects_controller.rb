@@ -4,16 +4,13 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    @projects = Project.all
+  
     @projects = Project.includes(:author).where('author_id = ?',
                                                 current_user.id).joins(:groups_projects).most_recent
   end
 
   # GET /projects/1 or /projects/1.json
-  def show
-    @project = Project.find(params[:id])
-    @groups = @project.group.nil? ? nil : @project.group
-  end
+  def show;end
 
   def project_ungrouped
     @projects = Project.includes(:author).where('author_id = ?',
@@ -76,12 +73,12 @@ class ProjectsController < ApplicationController
     return if logged_in?
 
     flash[:alert] = 'You need to login or sign up to access'
-    redirect_to '/login'
+    redirect_to '/'
   end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_project
-    @project = Project.find(params[:project_id])
+    @project = Project.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

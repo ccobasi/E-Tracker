@@ -12,7 +12,7 @@ module ProjectsHelper
 
       render partial: 'partials/good_job'
     else
-      render partial: 'partials/log_tasks'
+      render partial: 'partials/log_task'
     end
   end
 end

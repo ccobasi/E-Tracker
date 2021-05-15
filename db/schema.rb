@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_195235) do
+ActiveRecord::Schema.define(version: 2021_05_15_152403) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,13 +59,11 @@ ActiveRecord::Schema.define(version: 2021_05_13_195235) do
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
-    t.integer "author_id"
     t.integer "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.integer "author_id", default: 1, null: false
     t.index ["author_id"], name: "index_projects_on_author_id"
-    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,5 +75,8 @@ ActiveRecord::Schema.define(version: 2021_05_13_195235) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "projects", "users"
+  add_foreign_key "groups", "users"
+  add_foreign_key "groups_projects", "groups"
+  add_foreign_key "groups_projects", "projects"
+  add_foreign_key "projects", "users", column: "author_id"
 end
