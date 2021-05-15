@@ -1,39 +1,28 @@
 
-<% provide(:title, "#{@user.name}") %>
-<div class="d-flex flex-column align-items-center">
-  <div class="user-thumb my-3">
-    <%=image_tag(@user.avatar, style:"width:100px; height:100px; border-radius:50%")%>
-  </div>
-  <div>
-            <p class="text-center">
-                
-            <p>
-        </div>
-  <div class="user-profile-ul">
+
+
+<div class="user-profile-ul justify-content-center">
     <ul class="list-group">
-      <div class="username text-white d-flex justify-content-center nav-link p-2 mt-3"> <%="Hello #{current_user.name.titlecase} ready to start building project?"%></div>
-      <li class="list-group-item">
-        <%=link_to 'All my Projects', projects_path, class: 'nav-link d-flex justify-content-center bi bi-cash'%>
-      </li>
-      
-      <li class="list-group-item">
-                <%=link_to 'All My External Projects', projects_path(ungrouped: true), class: 'nav-link d-flex justify-content-left bi bi-list-stars'%>
-            </li>
-      <li class="list-group-item">
-        <%=link_to 'All groups', groups_path, class: 'nav-link d-flex justify-content-center bi bi-collection-fill'%>
-      </li>
-      <li class="list-group-item">
-        <%=link_to 'Edit your profile', edit_user_path(current_user), class:'d-flex justify-content-center nav-link text-decoration-none bi bi-pencil-square'%>
-      </li>
+        <div class="username text-success d-flex justify-content-center nav-link p-2 mt-3"> <%="Hello #{current_user.name.capitalize }"%></div>
+        <li class="list-group-item d-flex justify-content-center nav-link">
+            <%=link_to 'All My Projects', projects_path, class: 'nav-link d-flex justify-content-left bi bi-people-fill'%>
+        </li>
+        <li class="list-group-item d-flex justify-content-center nav-link">
+            <%=link_to 'All My External Projects', projects_project_ungrouped_path, class: 'nav-link d-flex justify-content-left bi bi-list-stars'%>
+        </li>
+        <li class="list-group-item d-flex justify-content-center nav-link">
+            <%=link_to 'All My External Projects', projects_path(ungrouped: true), class: 'nav-link d-flex justify-content-left bi bi-list-stars'%>
+        </li>
+        <li class="list-group-item d-flex justify-content-center nav-link">
+            <%=link_to 'All Groups', groups_path, class: 'nav-link d-flex justify-content-left bi bi-collection-fill'%>
+        </li>
+        <li class="list-group-item d-flex justify-content-center nav-link">
+            <%=link_to 'Edit your profile', edit_user_path(current_user), class:'d-flex justify-content-left nav-link text-decoration-none bi bi-pencil-square'%>
+        </li>
     </ul>
     <p class="text-center">
-            <strong class="text-success text-center m-2">Log 40 hours a week to achieve your goals.</strong>
-        </p>
-    
-  </div>
-  <div class="log-sign-btns jusitfy-self-end position-absolute bottom-0 bg-primary">
-        <%=link_to '', '', class:'btn sign-up-btn text-secondary'%>
-    </div>
+        <strong class="text-success text-center m-2">Log 40 hours a week to achieve your goals.</strong>
+    </p>
 </div>
 
-
+</div>

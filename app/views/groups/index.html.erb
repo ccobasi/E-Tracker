@@ -5,9 +5,10 @@
       Groups:<%=@groups.count%>
     </span>
   </div>
-  <%= render 'group' %>
   <p class="control">
                 <%= link_to 'New Group', new_group_path, class: "button is-primary" %>
     </p>
+  <%= render 'group' %>
+  
   
 </div>
