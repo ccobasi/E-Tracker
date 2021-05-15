@@ -7,13 +7,12 @@ module ProjectsHelper
 
   def total_project(projects)
     total = projects.inject(0) { |acum, project| acum + project.duration }
-  end
+    
+    if total >= 40
 
-  # def extra_feature_hours_message(hours)
-  #   if hours >= 40
-  #     render partial: 'partials/good_job'
-  #   else
-  #     render partial: 'partials/log_tasks'
-  #   end
-  # end
+      render partial: 'partials/good_job'
+    else
+      render partial: 'partials/log_tasks'
+    end
+  end
 end
