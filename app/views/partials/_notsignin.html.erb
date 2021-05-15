@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-light ">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link text-white" href="#">E-Tracker</a>
+    </li>
+    
+    <li class="nav-item">
+    <%=link_to 'New User', new_user_path, class: 'nav-link text-white' %>
+    </li>
+    <li class="nav-item">
+    <%=link_to 'Log in', login_path,class:'btn log-in-btn text-white', method: :get %>
+    </li>
+  </ul>
+</nav>

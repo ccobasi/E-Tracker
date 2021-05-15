@@ -1,0 +1,14 @@
+<% provide(:title, "Groups") %>
+<div class="total-project d-flex flex-column px-2 position-relative">
+  <div class="exp-total fw-bold  d-flex justify-content-center align-items-center mt-1 mb-4">
+    <span class="me-2">
+      Groups:<%=@groups.count%>
+    </span>
+  </div>
+  <p class="control">
+                <%= link_to 'New Group', new_group_path, class: "button is-primary" %>
+    </p>
+  <%= render 'group' %>
+  
+  
+</div>
