@@ -17,3 +17,4 @@ import "css/styles"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
