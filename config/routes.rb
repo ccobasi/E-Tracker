@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :projects, only: %i[show destroy new create index]
-  resources :groups, only: %i[show destroy new create index update edit]
-  resources :users, only: %i[show update destroy index edit new create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'users#index'
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  get 'logout', to: 'sessions#destroy'
-  get 'projects/project_ungrouped', to: 'projects#project_ungrouped'
+  get '/signup', to: 'users#new'
+  get '/login', to: 'users#login'
+  get '/logout', to: 'users#login'
+  post '/login', to: 'users#logincreate'
+  delete '/logout', to: 'users#logout'
+  get '/transactions/no-grp', to: 'transactions#no_grp'
+  resources :users, only: %i[create edit show]
+  resources :groups, only: %i[index show new create]
+  resources :transactions, only: %i[index show new create]
+  root 'static_pages#home'
 end

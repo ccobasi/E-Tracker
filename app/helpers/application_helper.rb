@@ -1,25 +1,20 @@
 module ApplicationHelper
-  def session_partials
-    if logged_in?
-      render partial: 'partials/signin'
-    else
-      render partial: 'partials/notsignin'
-    end
+  def logged_in?
+    !current_user.nil?
   end
 
-  def verbose_date(date)
-    date.strftime('%B-%d-%y')
+  def current_user
+    @user = User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
-  def show_errors(model)
-    pluralize(model.errors.count, 'error') if model.errors.any?
+  def logged_in_user
+    return if logged_in?
+
+    flash[:danger] = 'Please login or signup to have access'
+    redirect_to root_path
   end
 
-  def show_notice
-    content_tag(:div, notice, class: 'notice-box') if notice
-  end
-
-  def show_alert
-    content_tag(:div, alert, class: 'alert-box') if alert
+  def already_in
+    redirect_to current_user if logged_in?
   end
 end

@@ -1,6 +1,11 @@
-<div class="container d-flex flex-column justify-content-center align-items-center">
-<h1 class="my-5 text-center create-new ">New User</h1>
+<% provide(:title, 'Signup') %>
 
-<%= render 'form', user: @user %>
-</div>
+<%= form_for @user, html: { class: "mt-5 mx-3" } do |f| %>
 
+  <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+  
+  <%= f.submit class: "btn btn-primary my-4 mx-auto d-block" %>
+  
+  <%= render  partial: 'shared/form_errors', locals: { model: @user } %>
+  
+<% end %>

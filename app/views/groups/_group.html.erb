@@ -1,21 +1,11 @@
-<%= link_to 'javascript:history.back()',class:"text-decoration-none" do %>
-  <i class="bi bi-arrow-left-square text-dark"></i>
+ <%= link_to(group_url(group.id), class: "text-decoration-none") do %>
+  <div class="box-hvr card mb-3 mx-3 d-flex flex-row p-3 justify-content-between">
+    <img src="<%= group.icon %>" alt="" class="border border-warning rounded my-auto">
+    <p class="text-decoration-none h4 m-0 align-self-center px-1  overflow-hidden">
+      <%= group.name %>
+    </p>
+    <p class="date m-0 pr-sm-2 align-self-center text-center">
+      <small class="text-muted"><%= group.created_at.strftime('%d %b %Y') %></small>
+    </p>
+  </div>
 <% end %>
-<% @groups.each do |group| %>
-    <div class="card mb-3 align-self-center " style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-4">
-          <%= image_tag(group.icon,class:"group-img", style:"width:540px; height:200px;") %>
-        </div>
-        <div class="col-8">
-          <div class="card-body h-100">
-            <h5 class="card-title d-flex justify-content-between"><span><%= group.name %> </span> </h5>
-            <p class="card-text position-relative card-date d-flex justify-content-between"><small class="text-muted"> Created: <%=verbose_date(group.created_at) %></small><%= link_to group do%>
-                <i class="bi bi-eye-fill text-secondary"></i>
-              <% end %>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>

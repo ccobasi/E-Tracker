@@ -65,6 +65,10 @@ RSpec.configure do |config|
   #   #   - http://rspec.info/blog/2014/05/notable-changes-in-rspec-3/#zero-monkey-patching-mode
   #   config.disable_monkey_patching!
   #
+  #   # This setting enables warnings. It's recommended, but in some cases may
+  #   # be too noisy due to issues in dependencies.
+  #   config.warnings = true
+  #
   #   # Many RSpec users commonly either run the entire suite or an individual
   #   # file, and it's useful to allow more verbose output when running an
   #   # individual spec file.
@@ -91,4 +95,29 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+end
+
+def create_user
+  User.create(name: 'User01')
+end
+
+def log_in
+  create_user
+  visit login_path
+  fill_in 'Name', with: 'User01'
+  click_button 'Log in'
+end
+
+def new_group
+  visit new_group_path
+  fill_in 'Name', with: 'Group01'
+  click_button 'Create Group'
+end
+
+def new_transaction
+  visit new_transaction_path
+  fill_in 'Name', with: 'Transaction01'
+  fill_in 'Description', with: 'Transaction #01 description'
+  fill_in 'Amount', with: '10.50'
+  click_button 'Create Transaction'
 end

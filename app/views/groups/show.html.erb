@@ -1,26 +1,28 @@
-<% provide(:title, "Groups") %>
-<div class="container justify-content-center d-flex ">
-  <div class="card my-5" style="width: 18rem;">
-    <%=image_tag(@group.icon,style:"border-radius:1rem;")%>
-    <div class="card-body crd-bdy">
-      <h5 class="card-title text-center mb-5"> <%= @group.name %></h5>
-      <p class="m-0">Projects:</p>
+<% provide(:title, 'Group Details') %>
+
+<ul class="card mx-3 list-group list-group-flush p-3">
+  <li class="list-group-item p-0 d-flex justify-content-between">
+    <h4 class="mt-2 mb-4"><%= @group.name %></h4>
+    <img src="<%= @group.icon %>" alt="" class="grp-img mb-2 border border-warning rounded">
+  </li>
+
+  <li class="list-group-item p-0 pt-3">
+    <%= render @transactions %>
+  </li>
+
+  <%# <li class="list-group-item d-flex justify-content-between p-0 pt-3">
+    <p class="m-0">TOTAL AMOUNT</p>
+    <span class="font-weight-bold">$<%= number_with_precision(@transactions.sum(:amount), :precision => 2) %></span>
+  <%# </li> %>
+</ul>
+
+  <% flash.each do |m_type, msg| %>
+    <div class="alert alert-<%= m_type %> w-75 mx-auto text-center mt-3">
+      <%= msg %>
     </div>
-    <ul class="list-group list-group-flush">
-      <% @group.projects.each do |project| %>
-        <li class="list-group-item d-flex justify-content-between" style="font-size:13px;">
-          <span class="d-flex flex-column"> <small class="text-muted">Name</small> <%=project.name%></span>
-          <span class="d-flex flex-column"><small class="text-muted">Duration</small>$<%=project.duration%></span>
-          <span class="d-flex flex-column"><small class="text-muted">Created by</small><%=project.author.name%></span>
-          <%= display_eye(project)%>
-        </li>
-      <% end %>
-    </ul>
-    <div class="card-body text-center">
-      <%= link_to 'javascript:history.back()', class:"card-link text-decoration-none" do %>
-        <i class="bi bi-arrow-left-square text-dark"></i>
-        <%=display_modify(@group)%>
-      <% end %>
-    </div>
-  </div>
-</div>
+  <% end %>
+
+<%= link_to new_group_path, class: "link-btn btn
+                  btn-success w-100 p-4 rounded-0" do %>
+  <span class="p-3 border border-light">NEW GROUP</span>
+<% end %>

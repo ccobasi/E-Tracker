@@ -1,28 +1,21 @@
+<% provide(:title, 'Profile') %>
 
+<div class="profile-container h-100">
+  <div class="text-center mb-5">
+    <img src="<%= current_user.icon %>" alt="" class="lg-img card-img-top mt-5 border border-secondary rounded rounded-circle">
+    <h4 class="card-title"><%= current_user.name %></h4>
+  </div>
 
+  <ul class="">
+    <li class="list-group-item"><%= link_to 'All my projects', transactions_path %></li>
+    <li class="list-group-item"><%= link_to 'All my external projects', transactions_no_grp_path %></li>
+    <li class="list-group-item"><%= link_to 'All groups', groups_path %></li>
+    <li class="list-group-item"><%= link_to  "Logout", logout_path %></li>
+  </ul>
 
-<div class="user-profile-ul justify-content-center">
-    <ul class="list-group">
-        <div class="username text-success d-flex justify-content-center nav-link p-2 mt-3"> <%="Hello #{current_user.name.capitalize }"%></div>
-        <li class="list-group-item d-flex justify-content-center nav-link">
-            <%=link_to 'All My Projects', projects_path, class: 'nav-link d-flex justify-content-left bi bi-people-fill'%>
-        </li>
-        <li class="list-group-item d-flex justify-content-center nav-link">
-            <%=link_to 'All My External Projects', projects_project_ungrouped_path, class: 'nav-link d-flex justify-content-left bi bi-list-stars'%>
-        </li>
-        <li class="list-group-item d-flex justify-content-center nav-link">
-            <%=link_to 'All My External Projects', projects_path(ungrouped: true), class: 'nav-link d-flex justify-content-left bi bi-list-stars'%>
-        </li>
-        <li class="list-group-item d-flex justify-content-center nav-link">
-            <%=link_to 'All Groups', groups_path, class: 'nav-link d-flex justify-content-left bi bi-collection-fill'%>
-        </li>
-        <li class="list-group-item d-flex justify-content-center nav-link">
-            <%=link_to 'Edit your profile', edit_user_path(current_user), class:'d-flex justify-content-left nav-link text-decoration-none bi bi-pencil-square'%>
-        </li>
-    </ul>
-    <p class="text-center">
-        <strong class="text-success text-center m-2">Log 40 hours a week to achieve your goals.</strong>
-    </p>
-</div>
-
+  <% flash.each do |m_type, msg| %>
+    <div class="alert alert-<%= m_type %> w-75 mx-auto text-center mt-3">
+      <%= msg %>
+    </div>
+  <% end %>
 </div>

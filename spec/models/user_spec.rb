@@ -1,51 +1,48 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:name) { 'simple name' }
-  let(:user) { User.create(name: 'Chu', email: 'chu@hotmail.com', id: 101) }
-  let(:user2) { User.create(name: 'Jake', email: 'jake@hotmail.com', id: 2) }
-  let(:user_no_name) { User.create(email: 'spongeb@hotmail.com') }
-  let(:user_no_email) { User.create(name: 'SpongeBob') }
-  let(:pr1) { Project.new(name: 'Project1', duration: 51) }
-  let(:pr2) { Project.new(name: 'Project2', duration: 52) }
-  let(:group) { Group.create(name: 'Group1', user_id: user.id) }
-
-  describe 'Users can be created' do
-    it 'User validates presence of name' do
-      user_no_name.save
-
-      expect(user_no_name).to_not be_valid
-    end
-
-    it 'User validates presence of email' do
-      user_no_email.save
-
-      expect(user_no_email).to_not be_valid
-    end
-
-    it 'A user can create an project' do
-      pr = Project.new(name: 'Project', duration: 50)
-      pr.author_id = user.id
-      pr.save
-
-      expect(pr).to be_valid
-    end
-
-    it 'A user can have many projects' do
-      pr1.author_id = user.id
-      pr1.save
-      pr2.author_id = user.id
-      pr2.save
-
-      expect(Project.first.author_id).to eq(user.id)
-      expect(Project.second.author_id).to eq(user.id)
-    end
-
-    it 'User can create a group' do
-      gp = user.groups.new(name: 'group')
-      gp.save
-
-      expect(gp).to be_valid
-    end
+  before(:each) do
+    @user1 = User.new(name: 'User01')
   end
+
+  # 1st test
+  it 'can create a new user' do
+    @user1.save
+    expect(@user1.valid?).to eq(true)
+  end
+
+  # 2nd test
+  it "doesn't create user with an empty name" do
+    @user2 = User.create(name: '')
+    expect(@user2.valid?).to eq false
+  end
+
+  # 3rd test
+  it 'creates a user with only a length of min:4 and max:30' do
+    @user2 = User.create(name: '')
+    expect(@user2.errors.full_messages[1]).to include 'short'
+    @user2 = User.create(name: '012345678901234567890123456789N')
+    expect(@user2.errors.full_messages[0]).to include 'long'
+  end
+
+  # 4th test
+  it 'creates a user only if the name is unique' do
+    @user1.save
+    @user2 = User.create(name: @user1.name.to_s)
+    expect(@user2.valid?).to eq false
+  end
+
+  # 5th test
+  it 'creates a user with a name with capitals' do
+    expect(@user1.name[0] == @user1.name[0].upcase).to eq true
+  end
+
+  # 6th test
+  it 'creates a user with a default avatar' do
+    @user1.save
+    expect(@user1.icon.empty?).to eq false
+  end
+
+  # Clear created User(s)
+  after(:all) { User.destroy_all }
 end
