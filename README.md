@@ -3,7 +3,17 @@
 # **E-Tracker App**
 
 
-## Ruby app that allows you to keep track of your projects in order to track time put into a project.
+### Introduction
+> The CAPSTONE in Ruby on Rails is the highlighted project of the RoR module. Implementation of a project where transactions are listed as grouped or ungrouped and ordered most recent first. New GROUPS can be created by users to add more categorization to their daily activity. Groups are ordered alphabetically by name.
+
+
+### This is a sneak peak of the app
+
+![DESIGN](app/assets/images/ERD.png)
+![](app/assets/images/login.png)
+![](app/assets/images/home.png)
+![](app/assets/images/project.png)
+![](app/assets/images/group.png)
 
 
 ### Description
@@ -14,9 +24,6 @@
 
     -If user don't select an image when signing up, app will automaticaly assign one
     -If user don't select an image when creating a group, app will automaticaly assign one
-
-### Schema
-
 
 
 ## Getting Started
