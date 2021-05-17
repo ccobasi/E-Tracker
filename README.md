@@ -57,6 +57,7 @@ To run this app on your local enviroment or web browser, simply follow the steps
 
 - TIP: This is a mobile app so for full experience access it from your phone or set your web browser into mobile view and disable touch function
 - Simply access this link [E-Tracker](https://ror-capstone-e.herokuapp.com/)
+- [Presentation-video](https://www.loom.com/share/052e0e70205e44ce873f32cb56d151dc)
 
 ## How to run the test suite
 
