@@ -1,5 +1,11 @@
 <nav class="navbar navbar-dark bg-primary">
+
+<% unless logged_in? %>
+  <a href="/">
+<% else %>
+  <a href="/users/<%= current_user.id %>" class="burguer">
   
+<% end %>
     <button class="navbar-toggler">
       <span class="navbar-toggler-icon"></span>
     </button>
