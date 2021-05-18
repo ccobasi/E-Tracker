@@ -10,10 +10,10 @@
     <%= render @transactions %>
   </li>
 
-  <%# <li class="list-group-item d-flex justify-content-between p-0 pt-3">
-    <p class="m-0">TOTAL AMOUNT</p>
-    <span class="font-weight-bold">$<%= number_with_precision(@transactions.sum(:amount), :precision => 2) %></span>
-  <%# </li> %>
+  <li class="list-group-item d-flex justify-content-between p-0 pt-3">
+    <p class="m-0">TOTAL Duration</p>
+    <span class="font-weight-bold"><%= number_with_precision(@transactions.sum(:amount), :precision => 2) %></span>
+   </li>
 </ul>
 
   <% flash.each do |m_type, msg| %>

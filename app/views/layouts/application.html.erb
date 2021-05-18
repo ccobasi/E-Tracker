@@ -10,12 +10,12 @@
      <meta property="og:type" content="web-app">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> %>
+    
   </head>
 
   <body>
     <div class="container w-100" id="main_container">
-      <%# to not show the navbar in the home page %>
+      
       <% unless yield(:title) == 'Home' || yield(:title) == 'Profile' %>
         <%= render  "layouts/header" %>
       <% end %>

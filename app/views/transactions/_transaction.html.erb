@@ -10,9 +10,9 @@
     <div class="right-content flex-grow-1">
       <div class="top-content d-flex p-3 justify-content-between">
         <h5 class="text-muted m-0"><%= transaction.name %></h5>
-        <%# <p class="font-weight-bold m-0 text-dark">
-          $<%= number_with_precision(transaction.amount, :precision => 2) %>
-        <%# </p> %>
+        <p class="font-weight-bold m-0 text-dark">
+          <%= number_with_precision(transaction.amount, :precision => 2) %>Hr
+        </p>
       </div>
 
       <div class="btm-content d-flex justify-content-between">
